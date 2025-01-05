@@ -5,7 +5,7 @@ export interface Translation {
     translations: string[];
 }
 
-export async function find_translations(base64Image: string, prompt = " ", model = "gemini-exp-1206")
+export async function find_translations(base64Image: string, prompt = " ", model = "gemini-2.0-flash-exp")
 : Promise<Translation[]> {
     const GOOGLE_API_KEY = process.env.GEMINI_API_KEY;
 
