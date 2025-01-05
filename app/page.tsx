@@ -8,7 +8,7 @@ import {Input} from "@/components/ui/input";
 
 const prompt = "You are an assistant that helps language learners to learn English. " +
     "You will be provided with a picture that contains English text. " +
-    "You should find important words and idioms and give their meanings in English, and their translations in Persian." +
+    "You should find important words and idioms and give their meanings in English (in the meaning field), and list of their translations in Persian." +
     "Don't miss any important word or idiom. ";
 
 async function getBase64FromImageUrl(imageUrl: string): Promise<string> {

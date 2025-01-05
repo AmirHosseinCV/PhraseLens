@@ -32,15 +32,19 @@ export async function find_translations(base64Image: string, prompt = " ", model
                         type: "ARRAY",
                         items: {
                             type: "OBJECT",
+                            required: ["text", "meaning", "translations"],
                             properties: {
                                 text: {
                                     type: "STRING",
+                                    description: "The word or idiom in English.",
                                 },
                                 meaning: {
                                     type: "STRING",
+                                    description: "The meaning of the word or idiom in English.",
                                 },
                                 translations: {
                                     type: "ARRAY",
+                                    description: "The list of translations in Persian. Multiple translations are possible, if needed.",
                                     items: {
                                         type: "STRING",
                                     },
@@ -67,6 +71,7 @@ export async function find_translations(base64Image: string, prompt = " ", model
 
         if (response.ok) {
             const responseData = await response.json();
+            console.log("Tokens Used: ", responseData['usageMetadata']['totalTokenCount']);
             const image_json = responseData['candidates'][0]['content']['parts'][0]['text'];
             return JSON.parse(image_json)['response'];
         } else {
