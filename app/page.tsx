@@ -85,6 +85,12 @@ export default function Home() {
         }
     };
 
+    const handleClear = () => {
+        setImageUrl('');
+        setTranslations([]);
+        setError('');
+    };
+
   return (
       <>
       <div className="container mx-auto p-4 max-w-2xl">
@@ -137,6 +143,12 @@ export default function Home() {
                           'Translate'
                       )}
                   </Button>
+
+                  {imageUrl && (
+                        <Button onClick={handleClear} variant={"outline"} className="w-full mb-4">
+                            Clear
+                        </Button>
+                  )}
 
                   {error && (
                       <div className="text-red-500 mb-4">
